@@ -1,0 +1,14 @@
+load("//tools:defaults.bzl", "ts_library", "jasmine_node_test")
+
+ts_library(
+    name = "auth",
+    srcs = glob(
+        ["*.ts"],
+        exclude = ["*.spec.ts"],
+    ),
+    module_name = "angularfire2/auth",
+    deps = [
+        "//src/core",
+        "@rxjs",
+    ],
+)

@@ -1,0 +1,4 @@
+alias(
+    name = "install",
+    actual = "@yarn//:yarn",
+)

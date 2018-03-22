@@ -23,5 +23,8 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "target": "es2015"
+  },
+  "bazelOptions": {
+    "suppressTsconfigOverrideWarnings": true
   }
 }

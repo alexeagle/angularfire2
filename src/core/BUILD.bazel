@@ -1,0 +1,35 @@
+load("//tools:defaults.bzl", "ts_library", "jasmine_node_test")
+
+ts_library(
+    name = "core",
+    srcs = glob(
+        ["*.ts"],
+        exclude = ["*.spec.ts"],
+    ),
+    module_name = "angularfire2",
+    visibility = ["//:__subpackages__"],
+    deps = ["@rxjs"],
+)
+
+ts_library(
+    name = "test_lib",
+    testonly = True,
+    srcs = glob(["*.spec.ts"]),
+    deps = [
+        ":core",
+        "@rxjs",
+    ],
+)
+
+jasmine_node_test(
+    name = "test",
+    bootstrap = ["angularfire2/test/init_node_spec.js"],
+    tags = [
+        # TODO(deast): re-enable this test when it works
+        "manual",
+    ],
+    deps = [
+        ":test_lib",
+        "//test:node",
+    ],
+)

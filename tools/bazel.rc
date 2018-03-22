@@ -1,0 +1,7 @@
+# By default, failing tests don't print any output, it goes to the log file
+test --test_output=errors
+
+# Don't create bazel's symlinks in the project directory.
+# They have a recursive symlink which breaks some tooling.
+# Run `bazel info bazel-bin` to find out where the outputs went
+build --symlink_prefix=/
